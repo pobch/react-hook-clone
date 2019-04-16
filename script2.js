@@ -28,20 +28,20 @@ const App = () => {
   }
 }
 
+// react renders the component
 let exe = App()
 exe.render()
 
+// user interact
 exe.click()
 
+// react re-renders the component
 exe = App()
 exe.render()
 
+// user interact
 exe.click()
 
-exe = App()
-exe.render()
-
-exe.click()
-
+// react re-renders the component
 exe = App()
 exe.render()
