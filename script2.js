@@ -1,3 +1,5 @@
+// replicate useState()
+
 const ParentScope = (() => {
   // save state in useState's parent scope instead of in useState itself
   let _val
