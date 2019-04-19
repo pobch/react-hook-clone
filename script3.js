@@ -17,11 +17,10 @@ const ParentScope = (() => {
       return [_val, setState]
     },
     useEffect(callback, deps) {
-      _deps = _deps || deps // undefined, [], [....]
-      console.log('_deps:', _deps)
       const isDepsChanged = _deps ? _deps.some((val, i) => val !== deps[i]) : true
       if (isDepsChanged) {
         callback()
+        _deps = deps
       }
     }
   }
