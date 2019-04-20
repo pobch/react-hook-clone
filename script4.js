@@ -1,11 +1,11 @@
-// replicate useState() + useEffect()
-// basic version: support only 1 useState and 1 useEffect maximum in a functional component
+// useState() + useEffect()
+// better version: support multiple useState and useEffect
 
 const ParentScope = (() => {
-  // save state in useState's parent scope instead of in useState itself
-  let _val
-  // for useEffect
-  let _deps
+  // save state and deps in the same array
+  let hooks = []
+  // pointer for each index
+  let currentHook = 0
 
   return {
     useState(initValue) {
@@ -22,6 +22,13 @@ const ParentScope = (() => {
         callback()
         _deps = deps
       }
+    },
+    // need to create render method in this module to reset 'currentHook'
+    render(component) {
+      let exe = component()
+      exe.render()
+      currentHook = 0
+      return exe
     }
   }
 })()
