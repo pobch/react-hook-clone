@@ -60,6 +60,7 @@ exe.click()
 exe = App()
 exe.render()
 
+// set state with the same value (useEffect shouldn't be called)
 exe.setSameState()
 
 // react re-renders the component
